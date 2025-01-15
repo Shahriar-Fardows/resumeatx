@@ -2,14 +2,13 @@
 
 import { useState } from 'react'
 import { useFieldArray, useForm } from 'react-hook-form'
-import { Button } from './ui/button'
-import { Input } from './ui/input'
-import { Label } from './ui/label'
-import { Select } from './ui/select'
-import { Textarea } from './ui/textarea'
+import Input from './ui/input';
+import Label from './ui/label';
+import Select from './ui/select';
+import Textarea from './ui/textarea';
+import Button from './ui/button';
 
 
-Button
 
 const formSteps = [
   'Contact Information',
