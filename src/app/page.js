@@ -30,17 +30,15 @@ export default function Home() {
   const generatePDF = async () => {
     const content = document.getElementById('resume-preview');
   
-    // Temporarily remove shadow and border styles
     const originalStyle = content.style.cssText;
     content.style.boxShadow = 'none';
     content.style.border = 'none';
   
     const canvas = await html2canvas(content, {
-      scale: 2, // Increase resolution
-      backgroundColor: null, // Transparent background
+      scale: 2,
+      backgroundColor: null,
     });
   
-    // Restore original styles
     content.style.cssText = originalStyle;
   
     const imgData = canvas.toDataURL('image/png');
@@ -64,19 +62,21 @@ export default function Home() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8 text-center">ATS-Friendly Resume Maker</h1>
-      <div className="flex flex-col lg:flex-row gap-8">
-        <div className="w-full lg:w-1/2">
-          <ResumeForm onSubmit={handleFormSubmit} initialData={resumeData} setSelectedTemplate={setSelectedTemplate} />
-        </div>
-        <div className="w-full lg:w-1/2">
-          <div id="resume-preview" className="bg-white p-8 rounded-lg shadow-lg">
-            <ResumePreview data={resumeData} template={selectedTemplate} />
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-indigo-100">
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-4xl font-bold mb-8 text-center text-indigo-800">ATS-Friendly Resume Maker</h1>
+        <div className="flex flex-col lg:flex-row gap-8">
+          <div className="w-full lg:w-1/2 bg-white rounded-lg shadow-lg p-6">
+            <ResumeForm onSubmit={handleFormSubmit} initialData={resumeData} setSelectedTemplate={setSelectedTemplate} />
           </div>
-          <Button onClick={generatePDF} className="mt-4 w-full">
-            Download PDF
-          </Button>
+          <div className="w-full lg:w-1/2 bg-white rounded-lg shadow-lg p-6">
+            <div id="resume-preview" className="bg-white p-8 rounded-lg border border-gray-200">
+              <ResumePreview data={resumeData} template={selectedTemplate} />
+            </div>
+            <Button onClick={generatePDF} className="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
+              Download PDF
+            </Button>
+          </div>
         </div>
       </div>
     </div>
