@@ -1,11 +1,11 @@
 'use client'
 
+import html2canvas from 'html2canvas'
+import { jsPDF } from 'jspdf'
 import { useState } from 'react'
 import ResumeForm from '../components/ResumeForm'
 import ResumePreview from '../components/ResumePreview'
-import { Button } from '../components/ui/button'
-import { jsPDF } from 'jspdf'
-import html2canvas from 'html2canvas'
+import { Button } from '../components/ui/Button'
 
 const initialResumeData = {
   contactInfo: { name: '', phone: '', email: '', address: '', portfolio: '', linkedin: '' },

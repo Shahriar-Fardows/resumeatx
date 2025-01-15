@@ -1,12 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import { useForm, useFieldArray } from 'react-hook-form'
-import { Button } from './ui/button'
-import { Input } from './ui/input'
-import { Textarea } from './ui/textarea'
-import { Label } from './ui/label'
-import { Select } from './ui/select'
+import { useFieldArray, useForm } from 'react-hook-form'
+import { Button } from './ui/Button'
+import { Input } from './ui/Input'
+import { Label } from './ui/Label'
+import { Select } from './ui/Select'
+import { Textarea } from './ui/Textarea'
 
 const formSteps = [
   'Contact Information',
